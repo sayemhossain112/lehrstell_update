@@ -1,0 +1,152 @@
+<div class="second-step">
+
+    <div class="full-content ">
+        <!-- School -->
+        <div class="mb-10"></div>
+        <div class="row">
+            <div class="col-1-3">
+                <span class="small-heading">
+                    Schulbildung
+                </span>
+            </div>
+        </div>
+
+        <ng-container *ngFor="let scholl of commonService.schooling;let i = index">
+            <div class="row">
+                <div class="col-0-5">
+                    <label for="Last" class="label-float-right" style="float: left !important;">Von</label>
+                </div>
+                <div class="col-0-7">
+                    <select data-placeholder="" [(ngModel)]="scholl.von" style="height: 24px !important;">
+                        <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                    </select>
+                </div>
+
+                <div class="col-0-5">
+                    <label for="First" class="label-float-right">Bis</label>
+                </div>
+                <div class="col-0-7">
+                    <select data-placeholder="" [(ngModel)]="scholl.bis" style="height: 24px !important;">
+                        <option value="heute">heute</option>
+                        <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                    </select>
+                </div>
+
+                <div class="col-1">
+                    <label for="First" class="label-float-right">Schule</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" placeholder="Primarschule Grossfeld" [(ngModel)]="scholl.schule" id="First"
+                        class="col-9 " name="First" />
+                </div>
+
+                <div class="col-0-7">
+                    <label for="Job" class="label-float-right">Ort</label>
+                </div>
+                <div class="col-3">
+                    <input type="text" [(ngModel)]="scholl.ort" id="Job" class="col-9" name="Job" />
+                </div>
+                <!-- <div class="col-1" *ngIf="i==0" style="margin-right: 17px;"></div> -->
+                <div class="col-1">
+                    <span *ngIf="i!=0" class="clickable  delete-text" (click)="deleteSchulbildungObj(i)">&#10060;
+                        Löschen</span>
+                    <!-- <span  class="clickable delete-text" (click)="deleteSchulbildungObj(i)"></span> -->
+                </div>
+            </div>
+
+        </ng-container>
+        <div class="row">
+            <div class="plus-icon clickable margin-top-0" (click)="addSchooling()"> </div>
+            <span class="mt-0-6 icon-after-text clickable" (click)="addSchooling()"> Schule hinzufügen </span>
+        </div>
+        <!-- Language -->
+        <div class="mb-10"></div>
+        <div class="row">
+            <div class="col-100">
+                <span class="small-heading">
+                    Sprachen
+                    <!-- <span class="info-Box-line"> Wähle die sprachen aus oder schreibe selbst ins feld. </span> -->
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-language-side" style="width: 428.19px;">
+                <ng-container *ngFor="let language of commonService.languages ;let i = index">
+                    <div class="row">
+                        <div style="width: 142.39px;">
+                            <input type="text" list="language" [(ngModel)]="language.language" />
+                            <datalist id="language">
+                                <option>Deutsch</option>
+                                <option>Englisch</option>
+                                <option>Französisch</option>
+                                <option>Italienisch</option>
+                            </datalist>
+                        </div>
+                        <div style="width: 225.45px;">
+                            <input type="text" list="languageType" [(ngModel)]="language.type" style="width: 100% !important;" />
+                            <datalist id="languageType">
+                                <option>Muttersprache</option>
+                                <option>Schulkenntnisse (ab 2. Schuljahr)</option>
+                                <option>Schulkenntnisse (ab 3. Schuljahr)</option>
+                                <option>Schulkenntnisse (ab 4. Schuljahr)</option>
+                                <option>Schulkenntnisse (ab 5. Schuljahr)</option>
+                                <option>Schulkenntnisse (ab 6. Schuljahr)</option>
+                                <option>Schulkenntnisse (ab 7. Schuljahr)</option>
+                            </datalist>
+                        </div>
+                        
+                        <div *ngIf="i!=0" style="width: 30px;">
+                            <span class="clickable" style="margin-left: 15px;" (click)="deleteLanguageObj(i)">&#10060;</span>
+                            <span class="clickable delete-text" (click)="deleteLanguageObj(i)">Löschen</span>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="row">
+                    <div class="plus-icon clickable margin-top-0" (click)="addlanguage()"> </div>
+                    <span class="mt-1-5 icon-after-text clickable" (click)="addlanguage()"> Sprache hinzufügen </span>
+                </div>
+            </div>
+            <div class="right-language-side">
+                <div style="width: 224.7px;">
+                    <div class="info-box">
+                        Wähle die Sprachen aus oder schreibe selbst ins Feld.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Hobbys -->
+        <div class="mb-10"></div>
+        <div class="row">
+            <div class="col-1-3">
+                <span class="small-heading">
+                    Hobbys
+                </span>
+            </div>
+        </div>
+        <ng-container *ngFor="let hobby of commonService.hobbys;let i = index">
+            <div class="row">
+                <div class="col-2-5">
+                    <input type="text" placeholder="{{hobby.leftBoxPlaceHolder}}" class="" [(ngModel)]="hobby.name" />
+                </div>
+                <div class="col-8">
+                    <textarea id="description" placeholder="{{hobby.rightBoxPlaceHolder}}" [maxlength]="78"
+                        name="comment-area" [(ngModel)]="hobby.description" rows="3"></textarea>
+                    <span *ngIf="i>0" class="clickable" (click)="deleteHobbyObj(i)"> &nbsp;&nbsp; &#10060;</span>
+                    <span *ngIf="i>0" class="clickable delete-text" (click)="deleteHobbyObj(i)">Löschen</span>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="row">
+            <div class="plus-icon clickable" (click)="addHobby()"> </div>
+            <span class="icon-after-text clickable" (click)="addHobby()"> Hobby hinzufügen </span>
+        </div>
+
+        <div class="mb-10"></div>
+        <div class="mb-10"></div>
+    </div>
+</div>
+<a class="next-btn back-btn" (click)="onBack()">zurück</a>
+<a class="next-btn" (click)="onNext()">weiter</a>

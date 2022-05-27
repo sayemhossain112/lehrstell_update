@@ -1,0 +1,19 @@
+.footer-content{
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    span{
+        font-size: 12px;
+        margin-right: 40px;
+    }
+}
+
+.ml-20px {
+    margin-left: 20px;
+}

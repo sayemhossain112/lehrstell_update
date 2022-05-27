@@ -1,0 +1,26 @@
+<div class="cv-generator">
+    <div class="header">
+        Lebenslauf erstellen
+    </div>
+    <div class="content">
+        <!-- First-step -->
+        <ng-container *ngIf="commonService.step==1">
+            <span class="heading-btn">PERSONALIEN</span>
+            <app-personal> </app-personal>
+
+        </ng-container>
+
+        <!-- Second-step -->
+        <ng-container *ngIf="commonService.step==2">
+            <span class="heading-btn">BILDUNG UND HOBBYS</span>
+            <app-school-and-hobbys></app-school-and-hobbys>
+        </ng-container>
+
+        <!-- Second-step -->
+        <ng-container *ngIf="commonService.step==3">
+            <span class="heading-btn wth-60">SCHNUPPERLEHREN UND REFERENZEN</span>
+            <app-trail-and-reference></app-trail-and-reference>
+        </ng-container>
+
+    </div>
+</div>

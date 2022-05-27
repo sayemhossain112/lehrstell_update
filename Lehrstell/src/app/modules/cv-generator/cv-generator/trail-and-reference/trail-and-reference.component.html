@@ -1,0 +1,153 @@
+<div class="third-step" id="third-content">
+
+    <div class="full-content ">
+
+        <!-- Trail apprentice -->
+        <div class="mb-10"></div>
+        <div class="row">
+            <div class="col-100">
+                <span class="small-heading">
+                    Schnupperlehren
+                    <span class="info-Box-line">Noch keine Schnupperlehre absolviert: Klicke rechts neben dem Feld Ort
+                        auf das rote X.
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Trials -->
+        <ng-container *ngFor="let trail of commonService.trailApprentice;let i = index">
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="Last" class="">Von</label>
+                </div>
+                <div class="col-1-1">
+                    <input type="date" max="{{date | date:'yyyy-MM-dd'}}" [(ngModel)]="trail.von" id="Last"
+                        class="col-9" name="Last" />
+                </div>
+
+                <div style="width: 51px;">
+                    <label for="First" class="label-float-right">Bis</label>
+                </div>
+                <div class="col-1-1">
+                    <input type="date" max="{{date | date:'yyyy-MM-dd'}}" [(ngModel)]="trail.bis" id="First"
+                        class="clickable col-9" name="First" />
+                </div>
+                <span style="margin-left: 127px;" class="clickable" (click)="deleteTrailObject(i)">&#10060;</span>
+                <span class="clickable delete-text" (click)="deleteTrailObject(i)"
+                    style="margin-top: 4px;">Löschen</span>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="Job">Beruf</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="trail.beruf" id="Job" name="Job" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="First">Firma</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="trail.firma" id="First" name="First" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="Job">Ort</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="trail.ort" id="Job" name="Job" />
+                </div>
+            </div>
+            <div class="mb-10"></div>
+        </ng-container>
+
+        <div class="row">
+            <div class="plus-icon clickable" (click)="addTrail()"> </div>
+            <span class="icon-after-text clickable" (click)="addTrail()"> Schnupperlehre hinzufügen </span>
+        </div>
+
+        <!-- Referenzen -->
+
+        <div class="mb-10"></div>
+
+
+
+        <ng-container *ngFor="let reference of commonService.references;let i = index">
+
+            <div class="row">
+                <div class="col-1-3">
+                    <span class="small-heading">
+                        Referenzen
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="fname" class="">Vorname</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="reference.firstName" id="fname" class="" name="fname"
+                        placeholder="Mike" />
+                </div>
+                <span *ngIf="i!=0" class="clickable" (click)="deleteRefObject(i)">&#10060;</span>
+                <span *ngIf="i!=0" class="clickable delete-text" (click)="deleteRefObject(i)"
+                    style="margin-top: 4px;">Löschen</span>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="lname" class="">Nachname</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="reference.lastName" id="lname" class="" name="lname"
+                        placeholder="Muster" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="fname" class="">E-Mail Adresse</label>
+                </div>
+                <div class="col-5">
+                    <input type="email" [(ngModel)]="reference.email" id="fname" class="" name="fname" placeholder="mikemuster@mail.com" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="lname" class="">Telefon</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" (keypress)="numericOnly($event)" [(ngModel)]="reference.mobile" id="lname"
+                        class="" name="lname" placeholder="0799009090" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="lname" class="">Funktion</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" [(ngModel)]="reference.function" id="lname" class="" name="lname"
+                        placeholder="Klassenlehrer" />
+                </div>
+            </div>
+            <div class="mb-10"></div>
+        </ng-container>
+
+        <div class="row" *ngIf="commonService.references.length < 2">
+            <div class="plus-icon clickable" (click)="addReferenzen()"> </div>
+            <span class="icon-after-text clickable" (click)="addReferenzen()"> Referenz hinzufügen </span>
+        </div>
+
+    </div>
+</div>
+<a class="next-btn back-btn" (click)="onBack()">zurück</a>
+<a class="next-btn" (click)="onNext()">Vorschau PDF</a>

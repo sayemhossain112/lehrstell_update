@@ -1,0 +1,244 @@
+<div class="first-step">
+    <div class="left-side">
+        <form [formGroup]="msPersonalForm">
+            <div class="row">
+                <div class="col-100">
+                    <span class="small-heading grey-color">
+                        <span class="underline">Klicke</span> die richtigen Felder an und <span
+                            class="underline">fülle</span> die leeren Kästchen mit
+                        deinen Informationen aus.
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="fname" class="">Dein Vorname</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="firstName" type="text" id="fname" class="" name="fname"
+                        placeholder="Mike" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="lname" class="">Dein Nachname</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="lastName" type="text" id="lname" class="" name="lname"
+                        placeholder="Muster" />
+                </div>
+            </div>
+
+            <div class="mb-10"></div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <span class="small-heading">
+                        Adresse
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="Street" class="">Strasse</label>
+                </div>
+                <div class="col-1">
+                    <input formControlName="street" type="text" id="Street" class="width-100" name="Street"
+                        placeholder="Musterstrasse" />
+                </div>
+
+                <div style="width: 27%;">
+                    <label for="number" class="label-float-right">Nummer</label>
+                </div>
+                <div class="col-1-3">
+                    <input formControlName="number" (keypress)="numericOnly($event)" type="text" id="number" class=""
+                        name="number" placeholder="10" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="zip" class="">PLZ</label>
+                </div>
+                <div class="col-1">
+                    <input formControlName="zip" type="text" id="zip" class="width-100" name="zip" placeholder="6005" />
+                </div>
+
+                <div class="col-1">
+                    <label for="place" class="ml-60 ">Ort</label>
+                </div>
+                <div class="col-3-9">
+                    <input formControlName="place" type="text" id="place" class="width-64-5" name="place"
+                        placeholder="Luzern" />
+                </div>
+            </div>
+
+            <div class="mb-10"></div>
+
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="Mail" class="">E-Mail Adresse</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="email" type="text" id="Mail" class="" name="Mail"
+                        placeholder="mikemuster@mail.ch" />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="mobile" class="">Mobile</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="mobile" type="text" (keypress)="numericOnly($event)" id="mobile" class=""
+                        name="mobile" placeholder="0799009090" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div style="width: 33%;">
+                    <label for="date" class="">Ich schreibe ein Motivationsschreiben für eine:</label>
+                </div>
+                <div class="col-4-4">
+                    <select style="width: 260px;" data-placeholder="" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="commonService.msType">
+                        <option value="lehrstelle">Lehrstelle</option>
+                        <option value="schnupperlehre">Schnupperlehre</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="derFirma" class="">Name der Firma</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="derFirma" type="text" id="derFirma" class="" name="derFirma"
+                        placeholder="Firma Logistik AG" />
+                </div>
+            </div>
+
+            <!-- ======== Adress Der Firma ======== -->
+            <div class="row">
+                <div class="col-2">
+                    <span class="small-heading">
+                        Adresse der Firma
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="dfStreet" class="">Strasse</label>
+                </div>
+                <div class="col-7">
+                    <input formControlName="dfStreet" type="text" id="dfStreet" class="" name="dfStreet"
+                        placeholder="Fabrikstrasse 25" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="dfZip" class="">PLZ</label>
+                </div>
+                <div class="col-1">
+                    <input formControlName="dfZip" type="text" id="dfZip" class="width-100" name="dfZip"
+                        placeholder="6005" />
+                </div>
+
+                <div class="col-1">
+                    <label for="dfPlace" class="ml-60 ">Ort</label>
+                </div>
+                <div class="col-3-9">
+                    <input formControlName="dfPlace" type="text" id="dfPlace" class="width-64-5" name="dfPlace"
+                        placeholder="Luzern" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3-3">
+                    <label for="dfBeruf" class="">Beruf für den du dich bewerben möchtest </label>
+                </div>
+                <div class="col-4-4">
+                    <input formControlName="dfBeruf" style="width: 58% !important;" type="text" id="dfBeruf" class="" name="dfBeruf"
+                        placeholder="Logistiker" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="ebaOrEfz" class="">EBA oder EFZ</label>
+                </div>
+                <div class="col-7">
+                    <select style="width: 107px;" data-placeholder="" formControlName="ebaOrEfz">
+                        <option value="EBA">EBA</option>
+                        <option value="EFZ">EFZ</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-3">
+                    <label for="date" class="">An wen schreibst du den Brief?</label>
+                </div>
+                <!-- <div class="col-1-3">
+                    <select class="col-9 clickable" data-placeholder="" formControlName="schreibst">
+                        <option value="Frau">Frau:</option>
+                        <option value="Herr">Herr:</option>
+                        <option value="unknown">Nicht bekannt</option>
+                    </select>
+                </div>
+                <div class="col-2-4">
+                    <input formControlName="schreibstName" [maxlength]="50" type="text" id="schreibstName" class=""
+                        name="schreibstName" placeholder="" />
+                </div> -->
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <select class="col-9 clickable" data-placeholder="" formControlName="schreibst">
+                        <option value="Frau">Frau:</option>
+                        <option value="Herr">Herr:</option>
+                        <option value="unknown">Nicht bekannt</option>
+                    </select>
+                </div>
+                <div style="width: 10.9%;">
+                    <label for="date" class="ml-20">Vorname</label>
+                </div>
+                <div style="width: 12.7%;">
+                    <input formControlName="schreibst1Name" [maxlength]="50" type="text" id="schreibstName" class=""
+                        name="schreibstName" placeholder="Judith" />
+                </div>
+                <div style="width: 12.15%;">
+                    <label for="date" class="ml-20">Nachname</label>
+                </div>
+                <div class="col-1-5">
+                    <input formControlName="schreibst2Name" [maxlength]="50" type="text" id="schreibstName" class=""
+                        name="schreibstName" placeholder="Meier" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-3">
+                    <label for="date" class="">Datum von heute</label>
+                </div>
+                <div style="width: 29.8%;">
+                    <input formControlName="dob" type="date" id="date" class="" name="date" placeholder="1.1.2022" />
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<a class="next-btn" *ngIf="!showDoneBtn" (click)="onNext()">weiter</a>

@@ -1,0 +1,37 @@
+.home-content {
+    text-align: center;
+    .btns {
+        display: inline-flex;
+        .create-cv-btn {
+            width: 400px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-family: "DM Sans";
+            cursor: pointer;
+            border-radius: 75px;
+            background-color: #ffdf59;
+            font-weight: 550;
+            margin-right: 20px;
+        }
+    }
+}
+
+p {
+    font-size: 14.4px !important;
+}
+b {
+    font-size: 14.4px !important;
+}
+
+u:hover {
+    background-color: #ffdf59;
+    font-size: 15px !important;
+  }
+
+.alert-box {
+    font-family: sans-serif;
+    margin: -15px 20px 20px 20px;
+}

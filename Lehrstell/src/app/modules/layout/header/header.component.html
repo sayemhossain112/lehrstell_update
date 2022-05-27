@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="yellow-border"> </div>
+    <nav class="custom-navbar">
+        <div class="nav-logo clickable" (click)="navigateTo('/home')">
+            <a class="navbar-brand">
+                <img src="assets/images/logo.png">
+            </a>
+        </div>
+        <div class="meue-names">
+            <div class="items">
+                <span class="clickable" (click)="navigateTo('/cv-generator')">
+                    Lebenslauf
+                </span>
+                <span class="clickable" (click)="commonService.msStep=1;navigateTo('/motivation-sschreiben')">
+                    Motivationsschreiben
+                </span>
+            </div>
+        </div>
+    </nav>
+</div>
